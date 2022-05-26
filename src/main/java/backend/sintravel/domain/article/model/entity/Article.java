@@ -38,4 +38,8 @@ public class Article extends BaseTimeEntity {
     @JoinColumn(name = "user_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+
+    public void increaseViewCount() {
+        this.view_count++;
+    }
 }
