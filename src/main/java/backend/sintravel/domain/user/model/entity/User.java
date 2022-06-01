@@ -4,10 +4,7 @@ import backend.sintravel.domain.common.entity.BaseTimeEntity;
 import backend.sintravel.domain.user.UserRole;
 import backend.sintravel.domain.user.model.enums.Authority;
 import backend.sintravel.domain.user.model.enums.UserType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,6 +12,7 @@ import java.util.List;
 @Entity
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class User extends BaseTimeEntity {
 
     @Id
