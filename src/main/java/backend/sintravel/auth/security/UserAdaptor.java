@@ -1,6 +1,7 @@
 package backend.sintravel.auth.security;
 
 import backend.sintravel.domain.user.model.entity.User;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Getter
 public class UserAdaptor implements UserDetails {
 
     private final User user;
