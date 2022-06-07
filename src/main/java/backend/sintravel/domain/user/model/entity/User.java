@@ -33,7 +33,10 @@ public class User extends BaseTimeEntity {
     private UserType type;
 
     @Enumerated(EnumType.STRING)
-    @Builder.Default
     @Column
     private Authority authority;
+
+    public void insertUserType(UserType userType) {
+        this.type = userType;
+    }
 }
