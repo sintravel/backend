@@ -6,6 +6,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -38,7 +39,7 @@ public class JwtProvider {
 
     @PostConstruct
     protected void init() {
-        key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
+        key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
     }
 
     public String createToken(String username) {
@@ -61,14 +62,15 @@ public class JwtProvider {
     }
 
     private String getUsernameFromToken(String jwtToken) {
-        return Jwts.parser()
-            .setSigningKey(key)
-            .parseClaimsJws(jwtToken)
-            .getBody()
-            .getSubject();
+        return Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(jwtToken)
+                .getBody()
+                .getSubject();
     }
 
     public String resolveToken(HttpServletRequest request) {
-        return request.getHeader("X-AUTH_TOKEN");
+        return request.getHeader("X-AUTH-TOKEN");
     }
 }
