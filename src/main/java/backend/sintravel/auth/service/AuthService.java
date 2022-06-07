@@ -8,6 +8,7 @@ import backend.sintravel.domain.user.model.entity.User;
 import backend.sintravel.domain.user.model.enums.Authority;
 import backend.sintravel.domain.user.model.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -34,11 +35,11 @@ public class AuthService {
 
         User user = new User(
                 null,
-                   username,
-                   password,
-                   nickname,
-                   null,
-                   Authority.USER);
+                username,
+                password,
+                nickname,
+                null,
+                Authority.USER);
 
         userRepository.save(user);
     }
