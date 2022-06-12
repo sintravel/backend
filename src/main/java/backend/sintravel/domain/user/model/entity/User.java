@@ -1,13 +1,12 @@
 package backend.sintravel.domain.user.model.entity;
 
 import backend.sintravel.domain.common.entity.BaseTimeEntity;
-import backend.sintravel.domain.user.UserRole;
+import backend.sintravel.domain.survey.model.entity.Result;
 import backend.sintravel.domain.user.model.enums.Authority;
 import backend.sintravel.domain.user.model.enums.UserType;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
@@ -37,6 +36,7 @@ public class User extends BaseTimeEntity {
     private Authority authority;
 
     public void insertUserType(UserType userType) {
+
         this.type = userType;
     }
 }
