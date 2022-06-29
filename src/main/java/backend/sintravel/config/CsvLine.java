@@ -1,2 +1,8 @@
-package backend.sintravel.config;public class CsvLine {
-}
+//package backend.sintravel.config;
+//
+//import lombok.Data;
+//
+//@Data
+//public class CsvLine {
+//    private String line;
+//}
