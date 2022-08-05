@@ -8,7 +8,7 @@
 - Java 11  
 - Spring boot  
 - Spring Data JPA  
-- Spring Security  
+- Spring Security + JWT  
 - Spring batch  
 - Mysql  
 
